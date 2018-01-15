@@ -9,7 +9,9 @@ import {Component} from "@angular/core";
           <h1>Upcoming Angular 2 Events</h1>
           <hr>
           <!-- when eventClickeventDataFrom event is fired on event-thumbnail component execute handleEventClick method -->
-          <event-thumbnail [eventDataTo]="eventDataFrom" (eventClickFrom)="handleEventClick($event)"></event-thumbnail>
+          <event-thumbnail #pointerToChildComp [eventDataTo]="eventDataFrom" (eventClickFrom)="handleEventClick($event)" ></event-thumbnail>
+          <button (click)="pointerToChildComp.log('foo')">LOG</button>
+          <h3>{{pointerToChildComp.someProperty}}</h3>
       </div>
   `
 })

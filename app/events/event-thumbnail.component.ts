@@ -26,4 +26,11 @@ export class EventThumbnailComponent {
   handleClick() {
     this.eventClickFrom.emit(this.eventDataTo.name);
   }
+
+  log(info){
+    console.log(info);
+  }
+
+  someProperty:any= "Some property"
+
 }
