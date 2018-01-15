@@ -8,12 +8,13 @@ import {Component} from "@angular/core";
       <div>
           <h1>Upcoming Angular 2 Events</h1>
           <hr>
-          <event-thumbnail [event]="event"></event-thumbnail>
+          <!-- when eventClickeventDataFrom event is fired on event-thumbnail component execute handleEventClick method -->
+          <event-thumbnail [eventDataTo]="eventDataFrom" (eventClickFrom)="handleEventClick($event)"></event-thumbnail>
       </div>
   `
 })
 export class EventsListComponent {
-  event = {
+  eventDataFrom = {
     id: 1,
     name: "Angular Connect",
     date: "9/26/2018",
@@ -25,5 +26,9 @@ export class EventsListComponent {
       city: "London",
       country: "England"
     }
+  };
+
+  handleEventClick(data) {
+    console.log(data)
   }
 }
