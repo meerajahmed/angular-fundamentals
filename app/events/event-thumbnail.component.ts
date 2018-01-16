@@ -10,12 +10,19 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
           <div>Price: \${{eventDataTo.price}}</div>
           <div>
               <span>Location: {{eventDataTo.location.address}}</span>
-              <span>&nbsp;</span>
-              <span>{{eventDataTo.location.city}}, {{eventDataTo.location.country}}</span>
+              <span class="pad-left">{{eventDataTo.location.city}}, {{eventDataTo.location.country}}</span>
           </div>
           <button class="btn btn-primary" (click)="handleClick()" >Click</button>
       </div>
-  `
+  `,
+  styles: [`
+    .pad-left {
+      margin-left: 10px;
+    }
+    .well div {
+      color: #bbb;
+    }
+  `]
 })
 export class EventThumbnailComponent {
   // event will be passed in from other component
