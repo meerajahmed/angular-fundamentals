@@ -4,14 +4,15 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
   selector: "event-thumbnail",
   template: `
       <div class="well hoverwell thumbnail">
-          <h2>{{eventDataTo.name}}</h2>
-          <div>Date: {{eventDataTo.date}}</div>
-          <div>Time: {{eventDataTo.time}}</div>
-          <div>Price: \${{eventDataTo.price}}</div>
+          <h2>{{eventDataTo?.name}}</h2>
+          <div>Date: {{eventDataTo?.date}}</div>
+          <div>Time: {{eventDataTo?.time}}</div>
+          <div>Price: \${{eventDataTo?.price}}</div>
           <div>
-              <span>Location: {{eventDataTo.location.address}}</span>
-              <span class="pad-left">{{eventDataTo.location.city}}, {{eventDataTo.location.country}}</span>
+              <span>Location: {{eventDataTo?.location?.address}}</span>
+              <span class="pad-left">{{eventDataTo?.location?.city}}, {{eventDataTo?.location?.country}}</span>
           </div>
+          <div>Online URL: {{eventDataTo?.onlineUrl}}</div>
       </div>
   `,
   styles: [`
