@@ -12,10 +12,12 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
               <span>Location: {{eventDataTo.location.address}}</span>
               <span class="pad-left">{{eventDataTo.location.city}}, {{eventDataTo.location.country}}</span>
           </div>
-          <button class="btn btn-primary" (click)="handleClick()" >Click</button>
       </div>
   `,
   styles: [`
+    .thumbnail {
+      min-height: 210px;
+    }
     .pad-left {
       margin-left: 10px;
     }
