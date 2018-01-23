@@ -7,7 +7,7 @@ import {EventRouteActivator} from "./events/event-details/event-route-activator.
 
 export const appRoutes: Routes = [
   { path: "events", component: EventsListComponent },
-  { path: "events/new", component: CreateEventComponent }, // order of the paths is important
+  { path: "events/new", component: CreateEventComponent, canDeactivate: ["canDeactivateCreateEvent"] }, // order of the paths is important
   // if we place events/new route after events/:id Angular will always match events/:id instead of events/new
   { path: "events/:id", component: EventDetailsComponent, canActivate: [EventRouteActivator] },
   { path: "404", component: Error404Component},
