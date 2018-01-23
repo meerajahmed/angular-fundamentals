@@ -21,7 +21,7 @@ export class EventsListComponent implements OnInit {
 
   events: any;
 
-  constructor( private eventService: EventService, private routes: ActivatedRoute){
+  constructor( private eventService: EventService, private routes: ActivatedRoute ){
   }
   // called after component first OnChange
   ngOnInit(): void {
