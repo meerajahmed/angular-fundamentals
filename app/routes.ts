@@ -14,5 +14,6 @@ export const appRoutes: Routes = [
   // if we place events/new route after events/:id Angular will always match events/:id instead of events/new
   { path: "events/:id", component: EventDetailsComponent, canActivate: [EventRouteActivator] },
   { path: "404", component: Error404Component},
+  { path: "user", loadChildren: "app/user/user.module#UserModule"},
   { path: "", redirectTo: "/events", pathMatch: "full" }
 ];
