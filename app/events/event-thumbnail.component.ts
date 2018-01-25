@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {IEvent} from "../shared/event.model";
 
 @Component({
   selector: "event-thumbnail",
@@ -42,7 +43,7 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
 })
 export class EventThumbnailComponent {
   // event will be passed in from other component
-  @Input() eventDataTo: any;
+  @Input() eventDataTo: IEvent;
   // convey some event that has occurred
   @Output() eventClickFrom = new EventEmitter();
 
