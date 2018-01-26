@@ -12,6 +12,7 @@ import {CreateEventComponent} from "./events/create-event.component";
 import {Error404Component} from "./errors/404.component";
 import {EventRouteActivator} from "./events/event-details/event-route-activator.service";
 import {EventListResolver} from "./events/event-list-resolve.service";
+import {AuthService} from "./user/user.service";
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {EventListResolver} from "./events/event-list-resolve.service";
     EventService /* Angular injector is now aware of EventService */ ,
     EventRouteActivator,
     EventListResolver,
+    AuthService,   /*providers are shared across angular modules*/
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState }
   ],
   bootstrap: [EventsAppComponent]
