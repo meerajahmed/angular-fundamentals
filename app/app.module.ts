@@ -13,10 +13,13 @@ import {Error404Component} from "./errors/404.component";
 import {EventRouteActivator} from "./events/event-details/event-route-activator.service";
 import {EventListResolver} from "./events/event-list-resolve.service";
 import {AuthService} from "./user/user.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes) //Module with Providers
   ],
   declarations: [

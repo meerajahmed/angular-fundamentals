@@ -7,11 +7,17 @@ import {Observable} from "rxjs/Observable";
 export class EventService {
   getEvents(): Observable<IEvent[]> {
     let subject = new Subject<IEvent[]>();
-    setTimeout(() => { subject.next(EVENTS); subject.complete(); },2000);
+    setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 1000);
     return subject;
   }
   getEvent(id:number): IEvent{
     return EVENTS.find(event => event.id === id);
+  }
+
+  saveEvent(event: IEvent) {
+    event.id = 999;
+    event.sessions = [];
+    EVENTS.push(event);
   }
 }
 
