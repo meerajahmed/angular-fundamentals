@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {EventService} from "../../shared/event.service";
 import {ActivatedRoute} from "@angular/router";
-import {IEvent} from "../../shared/event.model";
+import {IEvent, ISession} from "../../shared/event.model";
 
 @Component({
   templateUrl: "app/events/event-details/event-details.component.html",
@@ -12,10 +12,14 @@ import {IEvent} from "../../shared/event.model";
     .event-image {
       height: 100px;
     }
+    a {
+      cursor: pointer;
+    }
   `]
 })
 export class EventDetailsComponent implements OnInit {
   event: IEvent;
+  addMode: boolean;
 
   constructor(private eventService: EventService,
     private route: ActivatedRoute){
@@ -27,4 +31,19 @@ export class EventDetailsComponent implements OnInit {
     );
   }
 
+  addSession(): void{
+    this.addMode = true;
+  }
+
+  saveNewSession(session:ISession): void {
+    session.id = Math.max.apply(null, this.event.sessions.map( s => s.id));
+    this.event.sessions.push(session);
+    this.eventService.updateEvent(this.event);
+    this.addMode = false;
+  }
+
+  cancelAddSession(): void {
+    this.addMode = false;
+  }
+  
 }
