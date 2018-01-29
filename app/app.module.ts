@@ -16,6 +16,7 @@ import {AuthService} from "./user/user.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateSessionComponent} from "./events/event-details/create-session.component";
 import {SessionLisComponent} from "./events/event-details/session-list.component";
+import {CollapsibleWellComponent} from "./shared/collapsible-well.component";
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {SessionLisComponent} from "./events/event-details/session-list.component
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionLisComponent
+    SessionLisComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     EventService /* Angular injector is now aware of EventService */ ,
