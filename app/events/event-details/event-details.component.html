@@ -24,16 +24,22 @@
 
     <hr>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 10px">
         <div class="col-md-2">
             <h3 style="margin:0">Sessions</h3>
+        </div>
+        <div class="col-md-7">
+            <button [class.active]="filterBy === 'all'" (click)="filterBy='all'">All</button>
+            <button [class.active]="filterBy === 'beginner'" (click)="filterBy='beginner'">All</button>
+            <button [class.active]="filterBy === 'intermediate'" (click)="filterBy='intermediate'">All</button>
+            <button [class.active]="filterBy === 'advanced'" (click)="filterBy='advanced'">All</button>
         </div>
         <div class="col-md-2">
             <a (click)="addSession()">Add Session</a>
         </div>
     </div>
 
-    <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+    <session-list *ngIf="!addMode" [sessions]="event?.sessions" [filterBy]="filterBy"></session-list>
     <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></create-session>
 
 </div>

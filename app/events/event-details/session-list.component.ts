@@ -8,4 +8,6 @@ import {ISession} from "../../shared/event.model";
 export class SessionLisComponent {
   @Input()
   sessions: ISession[];
+  @Input()
+  filterBy: string;
 }
