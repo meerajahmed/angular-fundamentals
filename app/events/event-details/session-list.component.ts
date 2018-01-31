@@ -11,6 +11,8 @@ export class SessionLisComponent implements OnChanges {
   sessions: ISession[];
   @Input()
   filterBy: string;
+  @Input()
+  sortBy: string;
 
   visibleSessions: ISession[];
 
