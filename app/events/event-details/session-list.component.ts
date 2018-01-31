@@ -19,6 +19,9 @@ export class SessionLisComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if( this.sessions ){
       this.filterSession(this.filterBy);
+      this.sortBy === "name"
+        ? this.visibleSessions.sort(sortByNameAsc)
+        : this.visibleSessions.sort(sortByVote);
     }
   }
 
@@ -31,4 +34,14 @@ export class SessionLisComponent implements OnChanges {
       });
     }
   }
+}
+
+function sortByNameAsc(s1: ISession, s2: ISession){
+  if(s1.name > s2.name) return 1;
+  else if(s1.name === s2.name) return 0;
+  else return -1;
+}
+
+function sortByVote(s1: ISession, s2: ISession){
+  return s2.voters.length - s1.voters.length;
 }
