@@ -18,10 +18,14 @@ export class SessionLisComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if( this.sessions ){
-      this.filterSession(this.filterBy);
-      this.sortBy === "name"
-        ? this.visibleSessions.sort(sortByNameAsc)
-        : this.visibleSessions.sort(sortByVote);
+      if('filterBy' in changes){
+        this.filterSession(this.filterBy);
+      }
+      if('sortBy' in changes){
+        this.sortBy === "name"
+          ? this.visibleSessions.sort(sortByNameAsc)
+          : this.visibleSessions.sort(sortByVote);
+      }
     }
   }
 
