@@ -18,6 +18,9 @@ import {CreateSessionComponent} from "./events/event-details/create-session.comp
 import {SessionLisComponent} from "./events/event-details/session-list.component";
 import {CollapsibleWellComponent} from "./shared/collapsible-well.component";
 import {DurationPipe} from "./shared/duration.pipe";
+import {Toastr, TOASTR_TOKEN} from "./shared/toastr.service";
+
+declare let toastr: Toastr;
 
 @NgModule({
   imports: [
@@ -44,7 +47,8 @@ import {DurationPipe} from "./shared/duration.pipe";
     EventRouteActivator,
     EventListResolver,
     AuthService,   /*providers are shared across angular modules*/
-    { provide: "canDeactivateCreateEvent", useValue: checkDirtyState }
+    { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
+    { provide: TOASTR_TOKEN, useValue: toastr }
   ],
   bootstrap: [EventsAppComponent]
 })
