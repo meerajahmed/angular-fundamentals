@@ -44,11 +44,16 @@ declare let toastr: Toastr;
   ],
   providers: [
     EventService /* Angular injector is now aware of EventService */ ,
-    EventRouteActivator,
+    EventRouteActivator, // shorthand for { provide: EventRouteActivator, useClass: EventRouteActivator}
     EventListResolver,
     AuthService,   /*providers are shared across angular modules*/
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
     { provide: TOASTR_TOKEN, useValue: toastr }
+    /* useValue ->  value already exists
+    *  useClass -> create instance of class
+    *  useFactory -> need to provide factory function
+    *  useExisting -> 
+    * */
   ],
   bootstrap: [EventsAppComponent]
 })
