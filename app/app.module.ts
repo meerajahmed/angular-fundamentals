@@ -52,7 +52,7 @@ declare let toastr: Toastr;
     /* useValue ->  value already exists
     *  useClass -> create instance of class
     *  useFactory -> need to provide factory function
-    *  useExisting -> 
+    *  useExisting ->
     * */
   ],
   bootstrap: [EventsAppComponent]
