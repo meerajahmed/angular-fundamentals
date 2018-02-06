@@ -19,8 +19,10 @@ import {SessionLisComponent} from "./events/event-details/session-list.component
 import {CollapsibleWellComponent} from "./shared/collapsible-well.component";
 import {DurationPipe} from "./shared/duration.pipe";
 import {Toastr, TOASTR_TOKEN} from "./shared/toastr.service";
+import {JQ_TOKEN} from "./shared/jquery.service";
 
 declare let toastr: Toastr;
+declare let jQuery: Object;
 
 @NgModule({
   imports: [
@@ -48,12 +50,13 @@ declare let toastr: Toastr;
     EventListResolver,
     AuthService,   /*providers are shared across angular modules*/
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
-    { provide: TOASTR_TOKEN, useValue: toastr }
+    { provide: TOASTR_TOKEN, useValue: toastr },
     /* useValue ->  value already exists
     *  useClass -> create instance of class
     *  useFactory -> need to provide factory function
     *  useExisting ->
     * */
+    { provide: JQ_TOKEN, useValue: jQuery }
   ],
   bootstrap: [EventsAppComponent]
 })
