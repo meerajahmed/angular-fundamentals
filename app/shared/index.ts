@@ -5,3 +5,5 @@ export * from "./event.service";
 export * from "./jquery.service";
 export * from "./restricted-words.validators";
 export * from "./toastr.service";
+export * from "./simple-modal.component";
+export * from "./modal-trigger.directive";

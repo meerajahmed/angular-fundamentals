@@ -18,6 +18,8 @@ import {SessionLisComponent} from "./events/event-details/session-list.component
 import {
   Toastr,
   CollapsibleWellComponent,
+  SimpleModalComponent,
+  ModalTriggerDirective,
   DurationPipe,
   EventService,
   TOASTR_TOKEN,
@@ -45,7 +47,9 @@ declare let jQuery: Object;
     CreateSessionComponent,
     SessionLisComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   providers: [
     EventService /* Angular injector is now aware of EventService */ ,
