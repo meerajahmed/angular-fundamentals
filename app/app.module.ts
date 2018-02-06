@@ -4,7 +4,6 @@ import {EventsAppComponent} from "./events-app.component";
 import {EventsListComponent} from "./events/events-list.component";
 import {EventThumbnailComponent} from "./events/event-thumbnail.component";
 import {NavBarComponent} from "./nav/navbar.component";
-import {EventService} from "./shared/event.service";
 import {EventDetailsComponent} from "./events/event-details/event-details.component";
 import {appRoutes} from "./routes";
 import {RouterModule} from "@angular/router";
@@ -16,10 +15,14 @@ import {AuthService} from "./user/user.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateSessionComponent} from "./events/event-details/create-session.component";
 import {SessionLisComponent} from "./events/event-details/session-list.component";
-import {CollapsibleWellComponent} from "./shared/collapsible-well.component";
-import {DurationPipe} from "./shared/duration.pipe";
-import {Toastr, TOASTR_TOKEN} from "./shared/toastr.service";
-import {JQ_TOKEN} from "./shared/jquery.service";
+import {
+  Toastr,
+  CollapsibleWellComponent,
+  DurationPipe,
+  EventService,
+  TOASTR_TOKEN,
+  JQ_TOKEN
+} from "./shared/index";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
