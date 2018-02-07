@@ -1,6 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {EventService} from "../../shared/event.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {IEvent, ISession} from "../../shared/event.model";
 
 @Component({
@@ -28,9 +28,16 @@ export class EventDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.event = this.eventService.getEvent(
-      +this.route.snapshot.params["id"]
-    );
+    /* Component is not re-initialed when we route to same route, so we need to observe route params
+    * */
+    this.route.params.forEach((params: Params) => {
+      this.event = this.eventService.getEvent(+params['id']);
+      /* We need to reset the component state as well
+      * */
+      this.addMode = false;
+      this.filterBy = "all";
+      this.sortBy = "votes";
+    });
   }
 
   addSession(): void{
