@@ -25,6 +25,7 @@ import {
   TOASTR_TOKEN,
   JQ_TOKEN
 } from "./shared/index";
+import {VotingComponent} from "./events/event-details/upvote.component";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -49,7 +50,8 @@ declare let jQuery: Object;
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    VotingComponent
   ],
   providers: [
     EventService /* Angular injector is now aware of EventService */ ,

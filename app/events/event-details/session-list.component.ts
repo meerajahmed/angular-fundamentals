@@ -38,6 +38,21 @@ export class SessionLisComponent implements OnChanges {
       });
     }
   }
+
+  toggleVote(session: ISession) {
+    if( this.userHasVotes() ){
+      this.voterService.deleteVoter(session, this.auth.currentuser.userName);
+    } else {
+      this.voterService.addVoter(session, this.auth.currentuser.userName)
+    }
+    if( this.sortBy === "votes" ){
+      this.visibleSessions.sort(sortByVotesDesc)
+    }
+  }
+
+  userHasVotes(session: ISession): boolean {
+    return this.voterService.userHasVoted(session, this.auth.currentUser.userName);
+  }
 }
 
 function sortByNameAsc(s1: ISession, s2: ISession){
