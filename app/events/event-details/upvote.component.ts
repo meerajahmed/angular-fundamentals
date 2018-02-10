@@ -12,7 +12,8 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
         <div>{{count}}</div>
       </div>
     </div>
-  `
+  `,
+  styleUrls: []
 })
 export class VotingComponent {
   @Input() count: number;
