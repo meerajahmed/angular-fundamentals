@@ -26,6 +26,7 @@ import {
   JQ_TOKEN
 } from "./shared/index";
 import {VotingComponent} from "./events/event-details/upvote.component";
+import {VoterService} from "./events/event-details/voter.service";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -57,6 +58,7 @@ declare let jQuery: Object;
     EventService /* Angular injector is now aware of EventService */ ,
     EventRouteActivator, // shorthand for { provide: EventRouteActivator, useClass: EventRouteActivator}
     EventListResolver,
+    VoterService,
     AuthService,   /*providers are shared across angular modules*/
     { provide: "canDeactivateCreateEvent", useValue: checkDirtyState },
     { provide: TOASTR_TOKEN, useValue: toastr },
