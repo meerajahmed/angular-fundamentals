@@ -18,7 +18,7 @@ export class SessionLisComponent implements OnChanges {
 
   visibleSessions: ISession[];
 
-  constructor(private auth: AuthService, private voterService: VoterService){
+  constructor(public auth: AuthService, private voterService: VoterService){
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -45,7 +45,7 @@ export class SessionLisComponent implements OnChanges {
   }
 
   toggleVote(session: ISession) {
-    if( this.userHasVotes(session) ){
+    if( this.userHasVoted(session) ){
       this.voterService.deleteVoter(session, this.auth.currentUser.userName);
     } else {
       this.voterService.addVoter(session, this.auth.currentUser.userName)
@@ -55,7 +55,7 @@ export class SessionLisComponent implements OnChanges {
     }
   }
 
-  userHasVotes(session: ISession): boolean {
+  userHasVoted(session: ISession): boolean {
     return this.voterService.userHasVoted(session, this.auth.currentUser.userName);
   }
 }
