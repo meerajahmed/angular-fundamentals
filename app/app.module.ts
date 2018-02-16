@@ -22,6 +22,7 @@ import {
   ModalTriggerDirective,
   DurationPipe,
   EventService,
+  LocationValidator,
   TOASTR_TOKEN,
   JQ_TOKEN
 } from "./shared/index";
@@ -52,7 +53,8 @@ declare let jQuery: Object;
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
-    VotingComponent
+    VotingComponent,
+    LocationValidator
   ],
   providers: [
     EventService /* Angular injector is now aware of EventService */ ,

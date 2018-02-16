@@ -7,3 +7,4 @@ export * from "./restricted-words.validators";
 export * from "./toastr.service";
 export * from "./simple-modal.component";
 export * from "./modal-trigger.directive";
+export * from "./location-validator.directive"
