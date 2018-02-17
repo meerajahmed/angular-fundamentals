@@ -28,6 +28,8 @@ import {
 } from "./shared/index";
 import {VotingComponent} from "./events/event-details/upvote.component";
 import {VoterService} from "./events/event-details/voter.service";
+import {HttpModule} from "@angular/http";
+
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -37,6 +39,7 @@ declare let jQuery: Object;
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes) //Module with Providers
   ],
   declarations: [
