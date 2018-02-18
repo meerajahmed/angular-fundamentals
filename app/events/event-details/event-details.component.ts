@@ -31,12 +31,14 @@ export class EventDetailsComponent implements OnInit {
     /* Component is not re-initialed when we route to same route, so we need to observe route params
     * */
     this.route.params.forEach((params: Params) => {
-      this.event = this.eventService.getEvent(+params['id']);
-      /* We need to reset the component state as well
-      * */
-      this.addMode = false;
-      this.filterBy = "all";
-      this.sortBy = "votes";
+      this.eventService.getEvent(+params['id']).subscribe((event: IEvent) => {
+        this.event = event;
+        /* We need to reset the component state as well
+         * */
+        this.addMode = false;
+        this.filterBy = "all";
+        this.sortBy = "votes";
+      });
     });
   }
 
