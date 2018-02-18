@@ -26,6 +26,7 @@ export class EventsListComponent implements OnInit {
   }
   // called after component first OnChange
   ngOnInit(): void {
+    // snapshot of the route param when this route was first activated
     this.events  = this.routes.snapshot.data["events"];
   }
 

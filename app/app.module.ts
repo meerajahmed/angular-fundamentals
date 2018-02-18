@@ -29,6 +29,7 @@ import {
 import {VotingComponent} from "./events/event-details/upvote.component";
 import {VoterService} from "./events/event-details/voter.service";
 import {HttpModule} from "@angular/http";
+import {EventResolver} from "./events/event-resolver.service";
 
 
 declare let toastr: Toastr;
@@ -61,7 +62,8 @@ declare let jQuery: Object;
   ],
   providers: [
     EventService /* Angular injector is now aware of EventService */ ,
-    EventRouteActivator, // shorthand for { provide: EventRouteActivator, useClass: EventRouteActivator}
+    //EventRouteActivator, // shorthand for { provide: EventRouteActivator, useClass: EventRouteActivator}
+    EventResolver,
     EventListResolver,
     VoterService,
     AuthService,   /*providers are shared across angular modules*/

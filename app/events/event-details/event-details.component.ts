@@ -30,15 +30,13 @@ export class EventDetailsComponent implements OnInit {
   ngOnInit(): void {
     /* Component is not re-initialed when we route to same route, so we need to observe route params
     * */
-    this.route.params.forEach((params: Params) => {
-      this.eventService.getEvent(+params['id']).subscribe((event: IEvent) => {
-        this.event = event;
-        /* We need to reset the component state as well
-         * */
-        this.addMode = false;
-        this.filterBy = "all";
-        this.sortBy = "votes";
-      });
+    this.route.data.forEach((data: any) => {
+      this.event = data["event"];
+      /* We need to reset the component state as well
+       * */
+      this.addMode = false;
+      this.filterBy = "all";
+      this.sortBy = "votes";
     });
   }
 
