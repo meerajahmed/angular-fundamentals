@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
   { path: "events/new", component: CreateEventComponent, canDeactivate: ["canDeactivateCreateEvent"] }, // order of the paths is important
   // if we place events/new route after events/:id Angular will always match events/:id instead of events/new
   //{ path: "events/:id", component: EventDetailsComponent, canActivate: [EventRouteActivator] },
-  { path: "event/;id", component: EventDetailsComponent, resolve: { event: EventResolver }},
+  { path: "events/:id", component: EventDetailsComponent, resolve: { event: EventResolver }},
   { path: "events/session/new", component: CreateSessionComponent },
   { path: "404", component: Error404Component},
   { path: "user", loadChildren: "app/user/user.module#UserModule"},
