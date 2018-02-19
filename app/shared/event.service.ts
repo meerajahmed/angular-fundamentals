@@ -55,7 +55,7 @@ export class EventService {
     EVENTS[index] = event;
   }
 
-  searchSessions(searchTerm: string): Observable<ISession[]> {
+  searchSessionsOldImp(searchTerm: string): Observable<ISession[]> {
     let term = searchTerm.toLowerCase();
     let results: ISession[] = [];
     let emitter = new EventEmitter(true);
@@ -76,6 +76,15 @@ export class EventService {
 
     // easy way to return Observable
     return emitter;
+  }
+
+  // search session on server
+  searchSessions(searchTerm: string): Observable<ISession[]> {
+    return this.http.get("/api/sessions/search?search="+searchTerm)
+      .map((response: Response) => {
+        return <ISession[]> response.json();
+      })
+      .catch(this.handleErrors);
   }
 
   private handleErrors(error: Response) {
