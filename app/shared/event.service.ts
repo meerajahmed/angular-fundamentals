@@ -2,7 +2,7 @@ import {EventEmitter, Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
 import {IEvent, ISession} from "./event.model";
 import {Observable} from "rxjs/Observable";
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 
@@ -34,10 +34,20 @@ export class EventService {
       .catch(this.handleErrors);
   }
 
-  saveEvent(event: IEvent) {
-    event.id = 999;
-    event.sessions = [];
-    EVENTS.push(event);
+  saveEvent(event: IEvent): Observable<IEvent> {
+    let headers, options;
+    headers= new Headers({
+      "Content-Type": "application/json"
+    });
+    options = new RequestOptions({
+      headers: headers
+    });
+
+    return this.http.post("/api/events", JSON.stringify(event), options)
+      .map((response: Response) => {
+        return response.json();
+      })
+      .catch(this.handleErrors);
   }
 
   updateEvent(event: IEvent) {
