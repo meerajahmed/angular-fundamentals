@@ -8,25 +8,22 @@ export class VoterService {
 
   constructor(private http: Http){}
 
-  deleteVoter(session: ISession, voterName: string){
+  deleteVoter(eventsId: number, session: ISession, voterName: string){
     session.voters = session.voters.filter( voter => voter !== voterName)
+    return this.http.delete(`/api/events/${eventsId}/sessions/${session.id}/voters/${voterName}`)
+      .catch(this.handleErrors);
   }
 
   addVoter(eventsId: number,session: ISession, voterName: string){
     let headers, options, url;
     session.voters.push(voterName);
-
     headers = new Headers({
       "Content-Type": "application/json"
     });
-
     options = new RequestOptions({ headers: headers});
-
     url = `/api/events/${eventsId}/sessions/${session.id}/voters/${voterName}`;
-
-    this.http.post(url, JSON.stringify({}), options)
-      .catch(this.handleErrors)
-
+    return this.http.post(url, JSON.stringify({}), options)
+      .catch(this.handleErrors);
   }
 
   private handleErrors(error: Response) {

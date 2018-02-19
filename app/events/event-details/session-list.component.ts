@@ -48,9 +48,11 @@ export class SessionLisComponent implements OnChanges {
 
   toggleVote(session: ISession) {
     if( this.userHasVoted(session) ){
-      this.voterService.deleteVoter(session, this.auth.currentUser.userName);
+      this.voterService.deleteVoter(this.eventId, session, this.auth.currentUser.userName)
+        .subscribe();
     } else {
       this.voterService.addVoter(this.eventId, session, this.auth.currentUser.userName)
+        .subscribe();
     }
     if( this.sortBy === "votes" ){
       this.visibleSessions.sort(sortByVote)
