@@ -3,7 +3,9 @@ import {Http, Headers, RequestOptions, Response} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/do";
 import "rxjs/add/observable/of";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class AuthService {
 
   currentUser: IUser;
