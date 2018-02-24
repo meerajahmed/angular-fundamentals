@@ -13,6 +13,7 @@ import {Toastr, TOASTR_TOKEN} from "../shared/toastr.service";
     .error ::-moz-placeholder { color: #999 }
     .error :-moz-placeholder { color: #999 }
     .error :-ms-input-placeholder { color: #999 }
+    .l-float-right { float: right}
   `]
 })
 export class ProfileComponent implements OnInit {
